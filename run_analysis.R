@@ -179,6 +179,7 @@ run_analysis <- function(directory) {
      ###    each variable for each activity and each subject ###      
      ###########################################################        
                
+          library(dplyr)    
                
            ## Create new dataset with summarized measures
                
@@ -189,8 +190,8 @@ run_analysis <- function(directory) {
                     summarise_all(funs(mean))
                
                
-               write.table(ds_summarize, file="tidydata_summary.csv", append = FALSE, quote = TRUE, sep = " ",
-                           eol = "\n", na = "NA", dec = ".", row.names = TRUE,
+               write.table(ds_summarize, file="tidydata_summary.txt", append = FALSE, quote = TRUE, sep = " ",
+                           eol = "\n", na = "NA", dec = ".", row.names = FALSE,
                            col.names = TRUE, qmethod = c("escape", "double"),
                            fileEncoding = "")
                
